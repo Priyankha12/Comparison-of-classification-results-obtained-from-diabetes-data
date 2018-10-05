@@ -1,0 +1,282 @@
+\documentclass[a4paper, 14pt, oneside]{Thesis}
+\usepackage{ulem}
+\usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
+\usepackage{verbatim} 
+\usepackage{pslatex} %To set the font as Times New Roman
+\usepackage{amsbsy} 
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{dcolumn}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage{verbatim} 
+\usepackage{epsfig,graphics}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{subfigure}
+\usepackage{tikz}
+\usepackage{adjustbox}
+\usepackage{glossaries}
+\usepackage{csquotes}
+%\usepackage{fancyhdr}
+%\usepackage{lipsum}
+
+%To have 1. instead of [1] in the bibliographic entry
+\makeatletter
+\renewcommand\@biblabel[1]{#1.}
+\makeatother
+
+% To remove hyphenation
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+%
+%----To make sure the page numbers are in the top middle of each page.
+\fancypagestyle{Thesis}{
+\fancyhf{}
+\fancyhead[C]{\thepage}
+%\lfoot{\thepage}
+\cfoot{\thepage}
+\pagestyle{fancy}
+}
+%redefine the plain pagestyle
+%\fancypagestyle{plain}{
+%\fancyhf{}
+%\fancyhead[C]{\thepage}
+%}
+%----------------------------------------------------------------------
+%% ------------------------s----------------------------------------
+\input{bmacros}
+\begin{document}
+
+\frontmatter	  % Begin Roman style (i, ii, iii, iv...) page numbering
+
+
+%  Title Page
+
+\title{COMPARISON OF CLASSIFICATION RESULTS OBTAINED FROM DIABETES DATA}
+\authors  {{ PRIYANKA B.  \hspace{1.5in} 312214104076\\ \vspace{0.1in}}
+{ PRIYANKHA B.  \hspace{1.3in} 312214104077\\\vspace{0.1in}}
+{ SHRINIDHI RAJAGOPAL  \hspace{0.2in} 312214104099\\ } }
+\addresses  {\\\Computer Science \& Engineering\\\Anna University}
+\date       {\today}
+
+\maketitle
+%% ----------------------------------------------------------------
+
+\setstretch{1.3}
+\fancyhead{}  % Clears all page headers and footers
+\rhead{\thepage}  % Sets the right side header to show the page number
+%\cfoot{ \thepage}
+\lhead{}  % Clears the left side page header
+
+\pagestyle{fancy}  % Finally, use the "fancy" page style to implement the FancyHdr headers
+
+
+\Declaration{ 
+%
+Certified that this project report titled \textbf{``COMPARISON OF CLASSIFICATION RESULTS OBTAINED FROM DIABETES DATA''} is the \textit{bonafide} work of ``\textbf{PRIYANKA B(312214104076)}, \textbf{PRIYANKHA B(312214104077)}, and \textbf{SHRINIDHI RAJAGOPAL (312214104099)}'' who carried out the project work under my supervision. 
+  \newlength{\aulength} 
+  \settowidth{\aulength}{SSN College of Engineering,}
+  \newlength{\auclength} 
+  \settowidth{\auclength}{(HEAD OF THE DEPARTMENT)}
+
+\begin{flushleft}
+  \parbox[t]{\auclength}{\textbf{Dr. Chitra Babu}\\
+    \textbf{Head of the Department}\\    
+    Professor,\\
+    Department of CSE,\\
+    SSN College of Engineering,\\
+    Kalavakkam - 603 110}
+  \hfill
+  \parbox[t]{\aulength}{\textbf{Dr. \hspace{-0.04in}D. Venkata Vara Prasad}\\
+    \textbf{Supervisor}\\
+    Professor,\\
+    Department of CSE,\\
+    SSN College of Engineering,\\
+    Kalavakkam - 603 110}
+\end{flushleft}
+Place:\\
+Date:\\
+
+\medskip
+Submitted for the examination held on\ldots\ldots\ldots\ldots
+\\
+\\
+\\
+{\bf Internal Examiner}\hfill
+{\bf External Examiner}
+}
+\clearpage
+%% Abstract in Tamil
+
+% Acknowledgement
+%\setstretch{1.3}
+
+\clearpage
+%% ----------------------------------------------------------------
+
+% The Abstract Page
+
+\acknowledgements{
+We thank the almighty for giving us strength and knowledge to do this project.
+
+We would like to express our gratitude to our guide \textbf{Dr. D. VENKATA VARA PRASAD}, Professor, Department of Computer Science and Engineering, for his valuable advice and suggestions as well as his continued guidance, patience and support that helped us to shape and refine our work.
+
+Our sincere thanks to  \textbf{Dr. CHITRA BABU}, Professor and Head of the Department of Computer Science and Engineering, for her words of advice and encouragement and we would like to thank our project Coordinator \textbf{Dr. S. SHEERAZUDDIN}, Associate Professor, Department of Computer Science and Engineering for his valuable suggestions throughout the first phase of project.
+
+We express our deep respect to the founder \textbf{Dr. SHIV NADAR}, Chairman, SSN Institutions. We also express our appreciation to \textbf{Dr. S. SALIVAHANAN}, Principal, for all the help he has rendered during this course of study.
+
+ We would like to extend our sincere thanks to all the teaching and non-teaching staff of our department who have contributed directly and indirectly during the course of our project work.
+Finally, we would like to thank our parents and friends for their patience, cooperation and moral support throughout our life. 
+\newline
+\newline
+\newline
+{\bf Priyanka B.}\hfill {\bf Priyankha B.}\hfill {\bf Shrinidhi Rajagopal}
+}
+\clearpage  % Abstract ended, start a new page
+
+\addtotoc{ABSTRACT} % Add the "Abstract" page entry to the Contents
+\abstract{ \begin{spacing}{2}
+The medical dataset is growing on a daily basis and there is a need to efficiently use this data to assist in the diagnosis of vast multitude of diseases. With the advancement in data mining, it is possible to extract interesting patterns from ever growing datasets in order to help take wise medical decisions. Diabetes is a chronic disease, due to either the pancreas not producing enough insulin or the cells of the body not responding properly to the insulin produced. It leads to complications like heart and kidney disease, blindness, nerve and blood vessel damage and hence needs to be diagnosed at an early stage. In this project, we will use data mining to classify if a person has diabetes or not in the PIMA Indians Diabetes dataset obtained from the UCI Machine Learning Repository. The objective is to build four classification models namely ANN, ID3, C4.5, CART and compare the models based on evaluation parameters like accuracy, sensitivity, specificity and precision. \end{spacing}
+}
+\clearpage
+%%% DUMMY PAGE FOR TAMIL ABSTRACT WHICH WILL BE PRINTED SEPARATELY
+%%% Since LaTeX can't print tamil characters, you've to type tamil 
+%%% abstract in some other editors and print it separately. When
+%%% binding the thesis place the tamil abstract in place of this blank page
+%%% I'm adding this blank page for Table of Contents to point to the right page
+
+%\pagestyle{empty}
+%\newpage
+%\mbox{}
+%\clearpage
+
+\pagestyle{plain}  %The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
+
+%% ----------------------------------------------------------------
+\lhead{\emph{Contents}}  % Set the left side page header to "Contents"
+
+\tableofcontents % Write out the Table of Contents
+
+
+%% ----------------------------------------------------------------
+\lhead{\emph{List of Tables}}  % Set the left side page header to "List of Tables"
+%\begin{spacing}{4}
+%\hspace{2.5in} \textbf{List of Tables} \par 
+\listoftables
+%\end{spacing}
+
+%% ----------------------------------------------------------------
+\lhead{\emph{List of Figures}}  % Set the left side page header to "List if Figures"
+\listoffigures  % Write out the List of Figures
+
+%% ----------------------------------------------------------------
+%2.1 LITERATURE SURVEY OF METAMORPHIC TESTING. . . . . . . . . . . .  13
+
+
+ % Write out the List of Tables
+
+
+  % Set the left side page header to 
+
+\addtotoc{LIST OF ACRONYMS}
+\chapter*{LIST OF ACRONYMS}  
+\begin{enumerate}
+ \item {\bf AMMLP }  { Artiﬁcial MetaPlasticity on Multilayer Perceptron}
+\item {\bf ANFIS }  {  Adaptive Neuro-Fuzzy Inference System }
+\item {\bf ANN }{ Artiﬁcial Neural Network}
+\item {\bf AR }{ Autoregressive}
+\item {\bf BMI }  { Body Mass Index}
+\item {\bf BP }  { Back Propagation}
+\item {\bf CAR }  { Complex Valued Autoregressive}
+\item {\bf CART }  { Classification And Regression Tree}
+\item {\bf CVD }  { Complex Valued Data}
+\item {\bf CVNN }  { Complex-Valued Neural Network}
+\item {\bf DM} { Diabetes Mellitus}  
+\item {\bf DPF}{ Diabetes Pedigree Function}  
+\item {\bf DT}{ Decision Tree }  
+\item {\bf EM}{ Expectation Maximization}
+\item {\bf FN}{ False Negative}  
+\item {\bf FP}{ False Positive}
+\item {\bf GA}{ Genetic Algorithm}
+\item {\bf HDL}{ High Density Lipoprotein}
+\item {\bf ID3}{ Iterative Dichotomiser }
+\item {\bf IDDM }{ Insulin-Dependent Diabetes Mellitus}
+\item {\bf KDD}{ Knowledge Discovery in Database }
+\item {\bf KNN}{ K-Nearest Neighbor}
+\item {\bf LM}{ Levenberg-Marquardt}  
+\item {\bf LR}{ Logistic Regression}  
+\item {\bf MATLAB}{ Matrix Laboratory}
+\item {\bf MLNN}{ Multilayer Neural Network }
+\item {\bf NaN}{ Not a number }  
+\item {\bf NIDDM }{ Non Insulin-Dependent Diabetes Mellitus}  
+\item {\bf PCA}{ Principal Component Analysis}
+\item {\bf PNN }{ Probabilistic Neural Network}
+\item {\bf RMS}{ Root Mean Square}  
+\item {\bf RVAR}{ Real Valued Autoregressive}
+\item {\bf RVD}{ Real Valued Data}
+\item {\bf RVNN}{ Real-Valued Neural Networks}
+\item {\bf SMO}{ Simple Minimal Optimization}
+\item {\bf SVM}{ Support Vector Machine}  
+\item {\bf TN}{ True Negative }
+\item {\bf TOC}{ Time of Completion}
+\item {\bf TP}{ True Positive}
+\item {\bf UCI}{ University of California Irvine}
+\item {\bf WEKA}{ Waikato Environment for Knowledge Analysis}  
+\end{enumerate}
+
+
+
+\mainmatter	  % Begin normal, numeric (1,2,3...) page numbering
+\pagestyle{myheadings}  % Return the page headers back to the "fancy" style
+
+\begin{spacing}{1.5}
+\input{chapter1} % INTRODUCTION
+\input{chapter2} % LITERATURE SURVEY
+\input{chapter3} % DESIGN
+\input{chapter4} % IMPLEMENTATION
+\input{chapter5} % CONCLUSION AND FUTURE WORK
+
+\end{spacing}
+\newpage
+\appendix
+
+%\addtotoc{REFERENCES}
+%\input{References} 
+%\bibliographystyle{plain}
+%\bibliography{ref}
+\begin{thebibliography}{99}
+  \bibliographystyle{plain}
+  
+\bibitem[1]{1} Aibinu, A.M., Salami, M.J.E. and Shafie, A.A. (2010) `Application of modeling techniques to diabetes diagnosis', IEEE EMBS Conference on Biomedical Engineering and Sciences (IECBES), Kuala Lumpur, pp. 194-198.
+
+\bibitem[2]{2} Al Jarullah, A.A. (2011) `Decision tree discovery for the diagnosis of type II diabetes', International Conference on Innovations in Information Technology, Abu Dhabi, pp. 303-307.
+
+\bibitem[3]{3} Barale, M.S., Shirke, D.T. (2016) `Cascaded Modeling for PIMA Indian Diabetes Data' , International Journal of Computer Applications, 139. 1-4. 10.5120/ijca2016909426.
+
+\bibitem[4]{4} Bashir, S., Qamar, U., Khan, F.H. and Javed, M.Y. (2014) `An Efficient Rule-Based Classification of Diabetes Using ID3, C4.5 and CART Ensembles',12th International Conference on Frontiers of Information Technology, Islamabad, pp. 226-231.
+
+\bibitem[5]{5} Geman, O., Chiuchisan, I. and Toderean, R. (2017) `Application of Adaptive Neuro-Fuzzy Inference System for diabetes classification and prediction' , E-Health and Bioengineering Conference (EHB), Sinaia, pp. 639-642.
+
+\bibitem[6]{6} Han, J., Rodriguez, J.C. and Beheshti, M. (2008) `Diabetes Data Analysis and Prediction Model Discovery Using RapidMiner' , Second International Conference on Future Generation Communication and Networking, Hainan Island , pp. 96-99.
+
+\bibitem[7]{7} Jayalakshmi, T. and Santhakumaran, A. (2010) `A Novel Classification Method for Diagnosis of Diabetes Mellitus Using Artificial Neural Networks' , International Conference on Data Storage and Data Engineering, Bangalore, pp. 159-163.
+
+\bibitem[8]{8} Jearanaitanakij, K. (2005) `Classifying Continuous Data Set by ID3 Algorithm', 5th International Conference on Information Communications \& Signal Processing, Bangkok, pp. 1048-1051.
+
+\bibitem[9]{9} Shivakumar, B.L. and Alby, S. (2014) `A Survey on Data-Mining Technologies for Prediction and Diagnosis of Diabetes', International Conference on Intelligent Computing Applications, Coimbatore, pp. 167-173.
+
+\bibitem[10]{10} Hasan Temurtas, Nejat Yumusak, Feyzullah Temurtas (2009) `A comparative study on diabetes disease diagnosis using neural networks', Elsevier, Expert Systems with Applications,Volume 36, Issue 4, Pages 8610-8615, ISSN 0957-4174
+
+\bibitem[11]{11} Xu, W., Zhang, J., Zhang, Q. and Wei, X. (2017) `Risk prediction of type II diabetes based on random forest model' , Third International Conference on Advances in Electrical, Electronics, Information, Communication and Bio-Informatics (AEEICB), Chennai, pp. 382-386.
+
+
+
+\end{thebibliography}
+
+
+\end{document}
+

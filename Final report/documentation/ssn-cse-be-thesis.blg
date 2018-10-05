@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: ssn-cse-be-thesis.aux
+The style file: plain.bst
+Database file #1: ref.bib
+Repeated entry---line 1806 of file ref.bib
+ : @inproceedings{CGL
+ :                   ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1816 of file ref.bib
+ : @book{CGP
+ :          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1834 of file ref.bib
+ : @inproceedings{VW
+ :                  ,
+I'm skipping whatever remains of this entry
+Warning--empty school in Mee
+You've used 16 entries,
+            2118 wiz_defined-function locations,
+            611 strings with 5853 characters,
+and the built_in function-call counts, 5551 in all, are:
+= -- 533
+> -- 227
+< -- 5
++ -- 92
+- -- 74
+* -- 366
+:= -- 893
+add.period$ -- 49
+call.type$ -- 16
+change.case$ -- 81
+chr.to.int$ -- 0
+cite$ -- 17
+duplicate$ -- 235
+empty$ -- 469
+format.name$ -- 74
+if$ -- 1211
+int.to.chr$ -- 0
+int.to.str$ -- 16
+missing$ -- 18
+newline$ -- 83
+num.names$ -- 32
+pop$ -- 96
+preamble$ -- 1
+purify$ -- 69
+quote$ -- 0
+skip$ -- 172
+stack$ -- 0
+substring$ -- 352
+swap$ -- 64
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 58
+warning$ -- 1
+while$ -- 49
+width$ -- 18
+write$ -- 175
+(There were 3 error messages)

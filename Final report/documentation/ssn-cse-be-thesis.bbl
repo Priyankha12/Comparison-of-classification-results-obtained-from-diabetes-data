@@ -1,0 +1,88 @@
+\begin{thebibliography}{10}
+
+\bibitem{Akers78}
+Sheldon~B. Akers.
+\newblock Binary decision diagrams.
+\newblock {\em IEEE Trans. Computers}, 27(6):509--516, 1978.
+
+\bibitem{BRB90}
+Karl~S. Brace, Richard~L. Rudell, and Randal~E. Bryant.
+\newblock Efficient implementation of a bdd package.
+\newblock In {\em DAC}, pages 40--45, 1990.
+
+\bibitem{BZ}
+Daniel Brand and Pitro Zafiropulo.
+\newblock On communicating finite-state machines.
+\newblock {\em J. ACM}, 30(2):323--342, 1983.
+
+\bibitem{Bryant92}
+Randal~E. Bryant.
+\newblock Symbolic boolean manipulation with ordered binary-decision diagrams.
+\newblock {\em ACM Comput. Surv.}, 24(3):293--318, 1992.
+
+\bibitem{BCMD}
+Jerry~R. Burch, Edmund~M. Clarke, Kenneth~L. McMillan, David~L. Dill, and L.~J.
+  Hwang.
+\newblock Symbolic model checking: $10^{20}$ states and beyond.
+\newblock {\em Inf. Comput.}, 98(2):142--170, 1992.
+
+\bibitem{CGL92}
+Edmund~M. Clarke, Orna Grumberg, and David~E. Long.
+\newblock Model checking and abstraction.
+\newblock In {\em POPL}, pages 342--354, 1992.
+
+\bibitem{CGL}
+Edmund~M. Clarke, Orna Grumberg, and David~E. Long.
+\newblock Model checking.
+\newblock In {\em NATO ASI DPD}, pages 305--349, 1996.
+
+\bibitem{CGP}
+Edmund~M. Clarke, Orna Grumberg, and Doron Peled.
+\newblock {\em Model Checking}.
+\newblock MIT Press, 2000.
+
+\bibitem{HMKST05}
+Jesper~G. Henriksen, Madhavan Mukund, K.~Narayan Kumar, Milind~A. Sohoni, and
+  P.~S. Thiagarajan.
+\newblock A theory of regular msc languages.
+\newblock {\em Inf. Comput.}, 202(1):1--38, 2005.
+
+\bibitem{Hop}
+John~E. Hopcroft, Rajeev Motwani, and Jeffrey~D. Ullman.
+\newblock {\em Introduction to automata theory, languages, and computation -
+  (2. ed.)}.
+\newblock Addison-Wesley series in computer science. Addison-Wesley-Longman,
+  2001.
+
+\bibitem{Lam78}
+Leslie Lamport.
+\newblock Time, clocks, and the ordering of events in a distributed system.
+\newblock {\em Commun. ACM}, 21(7):558--565, 1978.
+
+\bibitem{McM93}
+Kenneth~L. McMillan.
+\newblock {\em Symbolic model checking}.
+\newblock Kluwer, 1993.
+
+\bibitem{Mee}
+B.~Meenakshi.
+\newblock {\em Reasoning About Distributed Message Passing Systems}.
+\newblock PhD thesis, 2004.
+
+\bibitem{MR}
+B.~Meenakshi and Ramaswamy Ramanujam.
+\newblock Reasoning about message passing in finite state environments.
+\newblock In {\em ICALP}, pages 487--498, 2000.
+
+\bibitem{Moh97}
+Mehryar Mohri.
+\newblock Finite-state transducers in language and speech processing.
+\newblock {\em Computational Linguistics}, 23(2):269--311, 1997.
+
+\bibitem{VW}
+Moshe~Y. Vardi and Pierre Wolper.
+\newblock An automata-theoretic approach to automatic program verification
+  (preliminary report).
+\newblock In {\em LICS}, pages 332--344, 1986.
+
+\end{thebibliography}

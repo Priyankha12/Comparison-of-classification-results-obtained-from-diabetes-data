@@ -1,0 +1,2 @@
+# Comparison-of-classification-results-obtained-from-diabetes-data
+This project performs classification on Pima Indian Diabetes Data using Artificial Neural Network and decision tree algorithms like ID3, C4.5 and CART. Various pre-procession techniques for filling the missing values in the dataset was applied. To compare the models various evaluation parameters like accuracy, sensitivity, specificity and precision was applied.
